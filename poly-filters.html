@@ -1,0 +1,29 @@
+<script>
+    var polyfilters = {
+        uppercase: function(value) {
+          return value.toUpperCase();
+        },
+        lowercase: function(value) {
+          return value.toLowerCase();
+        },
+        capitalize: function(value) {
+          return value.charAt(0).toUpperCase() + value.slice(1);
+        },
+        limitto: function(value, limit, start) {
+          start = start || 0;
+          if (Array.isArray(value)) {
+            value = '['+ value.slice(start, limit) +']';
+          }
+          else if (typeof value === 'string') {
+            value = value.substring(start, limit);
+          }
+          return value;
+        },
+        jsonPrint: function(value, space) {
+          if (space === undefined) { space = 2 };
+          return JSON.stringify(value, null, space);
+        }
+    };
+
+    window.Polyfilters = window.Polyfilters || polyfilters;
+</script>
