@@ -1,7 +1,0 @@
-{
-  "name": "pwr-filter demo",
-  "short_name": "pwr-filter demo",
-  "description": "Demo of PWR-Filters",
-  "start_url": "/",
-  "display": "standalone"
-}
