@@ -1,0 +1,33 @@
+{
+  "name": "pwr-filters",
+  "homepage": "https://github.com/jordanaustin/pwr-filters",
+  "authors": [
+    "Jordan Austin <jrax86@gmail.com>"
+  ],
+  "description": "A Polymer behavior that adds filters as computed functions",
+  "main": "poly-filters.html",
+  "keywords": [
+    "power filters",
+    "polymer",
+    "filters",
+    "string filter",
+    "json filter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "ca18eee104",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ca18eee1044293b470f73b732c44e3364f8c4881"
+  },
+  "_source": "https://github.com/jordanaustin/pwr-filters.git",
+  "_target": "*",
+  "_originalSource": "pwr-filters"
+}

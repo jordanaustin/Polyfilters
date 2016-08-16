@@ -1,0 +1,146 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/pwr-filters/pwr-filters.html">
+
+<dom-module id="demo-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-family: sans-serif;
+        font-weight: lighter;
+        color: rgb(70,70,70);
+      }
+
+      section {
+        border: 1px solid black;
+        margin: 0 auto 1em auto;
+        padding: .5em;
+        max-width: 800px;
+      }
+
+      section > h1 {
+        fint-size: large;
+        font-weight: lighter;
+        display: inline-block;
+        margin-bottom: 0.5em;
+      }
+
+      section > input {
+        display: block;
+        font-size: 1em;
+        padding: 0.5em;
+        width: calc(100% - 2em);
+      }
+
+      section > pre {
+        display: inline-block;
+        font-size: 1.25em;
+        color: black;
+        margin-top: 0;
+        overflow: auto;
+        max-width: 100%;
+        vertical-align: bottom;
+      }
+
+      section > h2 > span {
+        display: inline-block;
+        font-weight: lighter;
+      }
+
+      section > h2 > pre {
+        font-size: smaller;
+      }
+    </style>
+    <section>
+        <h1>uppercase filter:</h1>
+        <pre>&#60h2&#62uppercase('{{uppercaseString}}')&#60h2&#62</pre>
+        <input type="text" value="{{uppercaseString::input}}"/>
+        <h2><span>Result:</span> {{uppercase(uppercaseString)}}</h2>
+    </section>
+
+    <section>
+        <h1>lowercase filter:</h1>
+        <pre>&#60h2&#62lowercase('{{lowercaseString}}')&#60h2&#62</pre>
+        <input type="text" value="{{lowercaseString::input}}"/>
+        <h2><span>Result:</span> {{lowercase(lowercaseString)}}</h2>
+    </section>
+
+    <section>
+        <h1>limitTo array filter</h1>
+        <pre>&#60h2&#62limitTo({{numberArray}}, {{numberLimit}})&#60h2&#62</pre>
+        <input type="number" value="{{numberLimit::input}}" min="0" max="[[numberArray.length]]"/>
+        <h2><span>Result:</span> {{limitTo(numberArray, numberLimit)}}</h2>
+    </section>
+
+    <section>
+        <h1>limitTo string filter</h1>
+        <pre>&#60h2&#62limitTo({{letterString}}, {{letterLimit}})&#60h2&#62</pre>
+        <input type="number" value="{{letterLimit::input}}" min="0" max="[[letterString.length]]"/>
+        <h2><span>Result:</span> {{limitTo(letterString, letterLimit)}}</h2>
+    </section>
+
+    <section>
+        <h1>jsonString filter</h1>
+        <pre>&#60h2&#62jsonString(firstName: 'Jane', lastName: 'Smith', dob: {month: '01', day: '15', year: '1980'}, {{jsonSpacing}})&#60h2&#62</pre>
+        <input type="number" value="{{jsonSpacing::input}}" min="0" max="10"/>
+        <h2><span>Result:</span>
+            <pre>{{jsonString(textToJson, jsonSpacing)}}</pre>
+        </h2>
+    </section>
+</template>
+
+  <script>
+    Polymer({
+
+      is: 'demo-app',
+      behaviors: [PwrFilters],
+      properties: {
+        uppercaseString: {
+          type: String,
+          value: 'text will be all uppercase',
+        },
+        lowercaseString: {
+          type: String,
+          value: 'text will be all LOWERCASE',
+        },
+        numberArray: {
+            type: Array,
+              value() {
+                return [1,2,3,4,5,6,7,8,9];
+            }
+        },
+        numberLimit: {
+            type: Number,
+            value: 3
+        },
+        letterString: {
+            type: String,
+            value: 'abcdefghijklmnopqrstuvwxyz'
+        },
+        letterLimit: {
+            type: Number,
+            value: 3
+        },
+        textToJson: {
+            type: Object,
+            value: function() {
+                return {
+                    firstName: 'Jane',
+                    lastName: 'Smith',
+                    dob: {
+                        month: '01',
+                        day: '15',
+                        year: '1980'
+                    }
+                };
+            }
+        },
+        jsonSpacing: {
+            type: String,
+            value: 2
+        }
+      },
+
+    });
+  </script>
+</dom-module>

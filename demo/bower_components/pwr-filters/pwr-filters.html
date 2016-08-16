@@ -1,0 +1,29 @@
+<script>
+    var pwrfilters = {
+        uppercase: function(value) {
+          return value.toUpperCase();
+        },
+        lowercase: function(value) {
+          return value.toLowerCase();
+        },
+        capitalize: function(value) {
+          return value.charAt(0).toUpperCase() + value.slice(1);
+        },
+        limitTo: function(value, limit, start) {
+          start = start || 0;
+          if (Array.isArray(value)) {
+            value = '['+ value.slice(start, limit) +']';
+          }
+          else if (typeof value === 'string') {
+            value = value.substring(start, limit);
+          }
+          return value;
+        },
+        jsonString: function(value, space) {
+          if (space === undefined) { space = 2 };
+          return JSON.stringify(value, null, parseInt(space));
+        }
+    };
+
+    window.PwrFilters = window.PwrFilters || pwrfilters;
+</script>
