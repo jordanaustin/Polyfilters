@@ -67,6 +67,13 @@
     </section>
 
     <section>
+        <h1>capitalize filter:</h1>
+        <pre>&#60h2&#62capitalize('{{capitalString}}')&#60h2&#62</pre>
+        <input type="text" value="{{capitalString::input}}"/>
+        <h2><span>Result:</span> {{capitalize(capitalString)}}</h2>
+    </section>
+
+    <section>
         <h1>limitTo array filter</h1>
         <pre>&#60h2&#62limitTo({{numberArray}}, {{numberLimit}})&#60h2&#62</pre>
         <input type="number" value="{{numberLimit::input}}" min="0" max="[[numberArray.length]]"/>
@@ -103,6 +110,10 @@
         lowercaseString: {
           type: String,
           value: 'text will be all LOWERCASE',
+        },
+        capitalString: {
+          type: String,
+          value: 'capitalize',
         },
         numberArray: {
             type: Array,
